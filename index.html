@@ -8,14 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    overflow: hidden; /* Hakuna scroll */
     font-family: 'Poppins', sans-serif;
     background: #000;
     color: #fff;
 }
 
-/* Hii message itaonekana kwa desktop */
+/* Desktop block */
 .desktop-block {
     display: none;
     justify-content: center;
@@ -26,31 +31,29 @@ body {
     padding: 20px;
 }
 
-/* Mobile wrapper */
+/* Fullscreen wrapper */
 .wrapper {
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 15px;
 }
 
-/* Glass container */
+/* Glass container FULL */
 .container {
     width: 100%;
-    max-width: 500px;
-    padding: 25px;
-    border-radius: 18px;
-    background: rgba(0, 0, 0, 0.65);
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* inajaza juu hadi chini */
+    background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 40px rgba(0,0,0,0.9);
 }
 
 /* Title */
 .title {
     text-align: center;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
     color: #ffd700;
 }
@@ -59,40 +62,45 @@ body {
 .subtitle {
     text-align: center;
     font-family: 'Great Vibes', cursive;
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 18px;
     color: #f5d77a;
 }
 
 /* Verse */
 .verse {
-    margin-bottom: 18px;
-    padding: 15px;
+    padding: 10px;
     border-left: 3px solid #ffd700;
     background: rgba(255,255,255,0.03);
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.7;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 /* Reference */
 .reference {
-    margin-top: 8px;
+    margin-top: 5px;
     font-weight: 600;
     color: #ffd700;
+    font-size: 12px;
+}
+
+/* Content area */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* distributes evenly */
+    flex: 1;
+    gap: 8px;
 }
 
 /* Footer */
 .footer {
     text-align: center;
-    margin-top: 20px;
-    font-size: 13px;
+    font-size: 12px;
     opacity: 0.8;
 }
 
-/* ===== RESPONSIVE CONTROL ===== */
-
-/* Desktop & large screens */
+/* Responsive blocking */
 @media (min-width: 768px) {
     .wrapper {
         display: none;
@@ -107,39 +115,42 @@ body {
 
 <body>
 
-<!-- Desktop message -->
 <div class="desktop-block">
-    ⚠️ Tafadhali fungua ukurasa huu kwa simu (mobile device only)
+    ⚠️ Tafadhali fungua ukurasa huu kwa simu tu
 </div>
 
-<!-- Mobile content -->
 <div class="wrapper">
-
 <div class="container">
 
-    <div class="title">KUOMBA KWA IMANI</div>
-    <div class="subtitle">Na Kudai Ahadi za Mungu</div>
-
-    <div class="verse">
-        Kwa sababu hiyo nawaambia, yeyote mtakayoyaomba mkisali, aminini kwamba mmeyapokea, nayo yatakuwa yenu.
-        <div class="reference">— Marko 11:24</div>
+    <div>
+        <div class="title">KUOMBA KWA IMANI</div>
+        <div class="subtitle">Na Kudai Ahadi za Mungu</div>
     </div>
 
-    <div class="verse">
-        Nanyi mtakaponiomba neno lolote kwa jina langu, hilo nitalifanya, ili Baba atukuzwe ndani ya Mwana. 
-        Mkiniomba neno lolote kwa jina langu, nitalifanya.
-        <div class="reference">— Yohana 14:13-14</div>
-    </div>
+    <div class="content">
 
-    <div class="verse">
-        Jifurahishe katika Bwana, naye atakupa haja za moyo wako.
-        <div class="reference">— Zaburi 37:4</div>
-    </div>
+        <div class="verse">
+            Kwa sababu hiyo nawaambia, yeyote mtakayoyaomba mkisali, aminini kwamba mmeyapokea, nayo yatakuwa yenu.
+            <div class="reference">— Marko 11:24</div>
+        </div>
 
-    <div class="verse">
-        Msijisumbue kwa neno lolote; bali katika kila neno kwa kusali na kuomba pamoja na kushukuru, 
-        haja zenu na zijulikane na Mungu.
-        <div class="reference">— Wafilipi 4:6</div>
+        <div class="verse">
+            Nanyi mtakaponiomba neno lolote kwa jina langu, hilo nitalifanya, ili Baba atukuzwe ndani ya Mwana.
+            Mkiniomba neno lolote kwa jina langu, nitalifanya.
+            <div class="reference">— Yohana 14:13-14</div>
+        </div>
+
+        <div class="verse">
+            Jifurahishe katika Bwana, naye atakupa haja za moyo wako.
+            <div class="reference">— Zaburi 37:4</div>
+        </div>
+
+        <div class="verse">
+            Msijisumbue kwa neno lolote; bali katika kila neno kwa kusali na kuomba pamoja na kushukuru,
+            haja zenu na zijulikane na Mungu.
+            <div class="reference">— Wafilipi 4:6</div>
+        </div>
+
     </div>
 
     <div class="footer">
@@ -147,7 +158,6 @@ body {
     </div>
 
 </div>
-
 </div>
 
 </body>
