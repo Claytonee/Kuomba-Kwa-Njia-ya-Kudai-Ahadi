@@ -1,164 +1,272 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuomba kwa Imani</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imani na Ahadi - Royal Dotted Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Great+Vibes&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            /* Background ya ukurasa: Mchanganyiko wa Zambarau ya Kifalme na Bluu nzito */
+            --page-bg: linear-gradient(135deg, #2d1b4e 0%, #0a192f 100%);
+            /* Rangi ya Kadi: Nyeusi ya Kioo (Black Glass) */
+            --card-bg: rgba(0, 0, 0, 0.75);
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --text-main: #ffffff;
+        }
 
-<style>
-* {
-    box-sizing: border-box;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--page-bg);
+            background-attachment: fixed; /* Background isitembee */
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
 
-body {
-    margin: 0;
-    overflow: hidden; /* Hakuna scroll */
-    font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: #fff;
-}
+        /* Desktop Restriction */
+        .desktop-block {
+            display: none;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #000;
+            z-index: 1000;
+            position: relative;
+        }
 
-/* Desktop block */
-.desktop-block {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    font-size: 20px;
-    padding: 20px;
-}
+        /* Main Wrapper */
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 15px;
+            position: relative;
+            z-index: 1;
+        }
 
-/* Fullscreen wrapper */
-.wrapper {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-}
+        /* Container Kuu yenye muonekano wa Kioo (Black Glass) */
+        .main-container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            /* Dotted Round Border Kuu */
+            border: 2px dotted var(--gold);
+            border-radius: 30px;
+            padding: 45px 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            position: relative;
+        }
 
-/* Glass container FULL */
-.container {
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* inajaza juu hadi chini */
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(20px);
-}
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
 
-/* Title */
-.title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    color: #ffd700;
-}
+        .pre-title {
+            font-size: 10px;
+            letter-spacing: 6px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
 
-/* Subtitle */
-.subtitle {
-    text-align: center;
-    font-family: 'Great Vibes', cursive;
-    font-size: 18px;
-    color: #f5d77a;
-}
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, var(--gold), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
 
-/* Verse */
-.verse {
-    padding: 10px;
-    border-left: 3px solid #ffd700;
-    background: rgba(255,255,255,0.03);
-    border-radius: 8px;
-    font-size: 13px;
-    line-height: 1.5;
-}
+        .subtitle {
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            color: #f0f0f0;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
 
-/* Reference */
-.reference {
-    margin-top: 5px;
-    font-weight: 600;
-    color: #ffd700;
-    font-size: 12px;
-}
+        /* Individual Verse Styling */
+        .verse-section {
+            margin-bottom: 25px;
+            position: relative;
+        }
 
-/* Content area */
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; /* distributes evenly */
-    flex: 1;
-    gap: 8px;
-}
+        /* Kadi ya kila aya yenye Dotted Border na Animation */
+        .verse-box {
+            background: rgba(255, 255, 255, 0.03);
+            /* Dotted Round Border kwa kila aya */
+            border: 1.5px dotted rgba(212, 175, 55, 0.4);
+            padding: 22px;
+            border-radius: 20px;
+            line-height: 1.8;
+            font-weight: 300;
+            font-size: 14.5px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
 
-/* Footer */
-.footer {
-    text-align: center;
-    font-size: 12px;
-    opacity: 0.8;
-}
+        /* Hover Effect: Mwangaza na Kubadilisha Border */
+        .verse-box:hover {
+            border-style: dotted; /* Inabaki dotted */
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--gold-glow);
+            
+            /* Animation ya vitone kuzunguka polepole (ukitaka iwe active) */
+            animation: dottedMove 1s linear infinite;
+        }
 
-/* Responsive blocking */
-@media (min-width: 768px) {
-    .wrapper {
-        display: none;
-    }
-    .desktop-block {
-        display: flex;
-    }
-}
-</style>
+        @keyframes dottedMove {
+            to { border-style: solid; } /* Mfano mrahisi wa animation */
+            from { border-style: dotted; }
+        }
 
+        /* Ikoni ndogo za pembeni */
+        .verse-icon {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 16px;
+            color: var(--gold);
+            opacity: 0.2;
+        }
+
+        .keyword {
+            color: var(--gold);
+            font-weight: 700;
+            text-shadow: 0 0 5px var(--gold-glow);
+        }
+
+        .ref {
+            display: block;
+            margin-top: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 3px;
+            width: fit-content;
+        }
+
+        /* Separator Ornament */
+        .ornament {
+            text-align: center;
+            color: var(--gold);
+            font-size: 18px;
+            margin: 25px 0;
+            opacity: 0.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            border-top: 1px dotted rgba(212, 175, 55, 0.3);
+            padding-top: 30px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: #fff;
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* Decorative Particles Background */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%23d4af37" fill-opacity="0.1" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Responsive Optimization */
+        @media (min-width: 768px) {
+            .wrapper { display: none; }
+            .desktop-block { display: flex; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="desktop-block">
-    ⚠️ Tafadhali fungua ukurasa huu kwa simu tu
-</div>
+    <div class="particles"></div>
 
-<div class="wrapper">
-<div class="container">
-
-    <div>
-        <div class="title">KUOMBA KWA IMANI</div>
-        <div class="subtitle">Na Kudai Ahadi za Mungu</div>
+    <div class="desktop-block">
+        <div>
+            <h1 style="color:var(--gold)">⚠️ MOBILE ONLY</h1>
+            <p style="color:white; opacity:0.7">Tafadhali fungua ukurasa huu kwa simu kuona muundo bora.</p>
+        </div>
     </div>
 
-    <div class="content">
+    <div class="wrapper">
+        <div class="main-container">
+            
+            <header>
+                <div class="pre-title">Biblical Promises</div>
+                <h1 class="title">KUOMBA KWA IMANI</h1>
+                <div class="subtitle">Na Kudai Ahadi za Mungu</div>
+            </header>
 
-        <div class="verse">
-            Kwa sababu hiyo nawaambia, yeyote mtakayoyaomba mkisali, aminini kwamba mmeyapokea, nayo yatakuwa yenu.
-            <div class="reference">— Marko 11:24</div>
+            <div class="verse-section">
+                <div class="verse-box">
+                    <i class="fas fa-dove verse-icon"></i>
+                    “Kwa sababu hiyo nawaambia, yeyote mtakayoyaomba mkisali, <span class="keyword">AMININI</span> kwamba mmeyapokea, nayo yatakuwa yenu.”
+                    <span class="ref">Marko 11:24</span>
+                </div>
+            </div>
+
+            <div class="verse-section">
+                <div class="verse-box">
+                    <i class="fas fa-cross verse-icon"></i>
+                    “Nanyi mtakaponiomba neno lolote kwa <span class="keyword">JINA LANGU</span>, hilo nitalifanya, ili Baba atukuzwe ndani ya Mwana.”
+                    <span class="ref">Yohana 14:13-14</span>
+                </div>
+            </div>
+
+            <div class="ornament"><i class="fas fa-crown"></i></div>
+
+            <div class="verse-section">
+                <div class="verse-box">
+                    <i class="fas fa-heart verse-icon"></i>
+                    “<span class="keyword">JIFURAHISHE</span> katika Bwana, naye atakupa haja za moyo wako.”
+                    <span class="ref">Zaburi 37:4</span>
+                </div>
+            </div>
+
+            <div class="verse-section">
+                <div class="verse-box">
+                    <i class="fas fa-pray verse-icon"></i>
+                    “Msijisumbue kwa neno lolote; bali katika kila neno kwa <span class="keyword">KUSALI</span> na kuomba pamoja na kushukuru.”
+                    <span class="ref">Wafilipi 4:6</span>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-text">OMBA • AMINI • POKEA</div>
+                <i class="fas fa-ellipsis-h" style="color: var(--gold); margin-top: 15px; display: block; font-size: 18px; opacity: 0.6;"></i>
+            </footer>
+
         </div>
-
-        <div class="verse">
-            Nanyi mtakaponiomba neno lolote kwa jina langu, hilo nitalifanya, ili Baba atukuzwe ndani ya Mwana.
-            Mkiniomba neno lolote kwa jina langu, nitalifanya.
-            <div class="reference">— Yohana 14:13-14</div>
-        </div>
-
-        <div class="verse">
-            Jifurahishe katika Bwana, naye atakupa haja za moyo wako.
-            <div class="reference">— Zaburi 37:4</div>
-        </div>
-
-        <div class="verse">
-            Msijisumbue kwa neno lolote; bali katika kila neno kwa kusali na kuomba pamoja na kushukuru,
-            haja zenu na zijulikane na Mungu.
-            <div class="reference">— Wafilipi 4:6</div>
-        </div>
-
     </div>
-
-    <div class="footer">
-        ✨ Omba • Amini • Pokea ✨
-    </div>
-
-</div>
-</div>
 
 </body>
 </html>
